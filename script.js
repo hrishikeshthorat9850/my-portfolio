@@ -14,3 +14,8 @@ navLinks.forEach(link => {
 function toggleMode() {
   document.body.classList.toggle("dark-mode");
 }
+
+function toggleMenu() {
+  const nav = document.getElementById("navbar");
+  nav.classList.toggle("show");
+}
