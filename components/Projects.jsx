@@ -8,7 +8,7 @@ const projects = [
   {
     title: "DairyWebApp",
     description: "A full-stack milk collection center web app built with node.js,express and mongodb.",
-    image: "/dairywebapp.png",
+    image: "dairywebapp.png",
     github: "https://github.com/hrishikeshthorat9850/milk-collection-center",
     live: "https://devblog.vercel.app",
     tags: ["Node.js", "Mongodb", "Tailwind"],
@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Todo App",
     description: "Minimal task manager with authentication and drag-drop UI.",
-    image: "/TodoApp.png",
+    image: "TodoApp.png",
     github: "https://github.com/hrishikeshthorat9850/TodoApp",
     live: "https://taskflow.vercel.app",
     tags: ["React", "Supabase", "Tailwind"],
@@ -24,7 +24,7 @@ const projects = [
   {
     title: "AgroGram",
     description: "A unique animated portfolio showcasing my full-stack work.",
-    image: "/Agrogram.png",
+    image: "Agrogram.png",
     github: "https://github.com/hrishikeshthorat9850/agrogram",
     live: "https://yourportfolio.com",
     tags: ["Next.js", "Supabase", "Tailwind"],

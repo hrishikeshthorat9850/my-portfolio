@@ -17,7 +17,7 @@ export default function AboutMe() {
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
             <Link
-              href="/resume.pdf"
+              href="/Resume.pdf"
               download
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition-all duration-300"
             >
