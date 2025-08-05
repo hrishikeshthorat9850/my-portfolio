@@ -26,7 +26,7 @@ export default function Header({darkMode,toggleTheme}) {
         <div className="flex items-center gap-2">
             <div className="flex flex-col items-center text-center mt-10 md:mt-0 ">
               <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x transition-transform hover:scale-105 duration-300">
-                Hrishikesh Thorat
+                Test Name
               </h1>
               <p className="hidden md:block mt-2 text-sm sm:text-base text-white-600 dark:text-gray-300 font-medium">
                 Full-Stack Web Developer • Next.js • Supabase • React.js
