@@ -17,7 +17,7 @@ export default function AboutMe() {
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
             <Link
-              href="/Resume.pdf"
+              href="Resume.pdf"
               download
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition-all duration-300"
             >
@@ -46,7 +46,7 @@ export default function AboutMe() {
         {/* Profile Image */}
         <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl shadow-blue-300 dark:shadow-blue-800 hover:scale-105 transition-transform duration-500 ml-40">
           <Image
-            src="/photo.jpeg" // Replace with your image
+            src="photo.jpeg" 
             alt="Your Name"
             fill
             className="object-cover"
