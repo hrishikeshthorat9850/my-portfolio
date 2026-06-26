@@ -46,7 +46,7 @@ export default function AboutMe() {
         {/* Profile Image */}
         <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl shadow-blue-300 dark:shadow-blue-800 hover:scale-105 transition-transform duration-500 ml-40">
           <Image
-            src="photo.jpeg" 
+            src="my-photo.png" 
             alt="Your Name"
             fill
             className="object-cover"
