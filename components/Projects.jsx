@@ -3,90 +3,127 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
     title: "DairyWebApp",
-    description: "A full-stack milk collection center web app built with node.js,express and mongodb.",
-    image: "dairywebapp.png",
+    description:
+      "A milk collection center app for managing farmers, daily entries, rates, and collection records.",
+    image: "/dairywebapp.png",
     github: "https://github.com/hrishikeshthorat9850/milk-collection-center",
-    live: "https://devblog.vercel.app",
-    tags: ["Node.js", "Mongodb", "Tailwind"],
+    tags: ["Node.js", "Express", "MongoDB"],
+    type: "Full-stack dashboard",
   },
   {
     title: "Todo App",
-    description: "Minimal task manager with authentication and drag-drop UI.",
-    image: "TodoApp.png",
+    description:
+      "A focused task manager with authentication, task organization, and a responsive dashboard interface.",
+    image: "/TodoApp.png",
     github: "https://github.com/hrishikeshthorat9850/TodoApp",
-    live: "https://taskflow.vercel.app",
     tags: ["React", "Supabase", "Tailwind"],
+    type: "Productivity app",
   },
   {
     title: "AgroGram",
-    description: "A unique animated portfolio showcasing my full-stack work.",
-    image: "Agrogram.png",
+    description:
+      "An agriculture-focused web app concept built with modern frontend patterns and clean user flows.",
+    image: "/Agrogram.png",
     github: "https://github.com/hrishikeshthorat9850/agrogram",
-    live: "https://yourportfolio.com",
     tags: ["Next.js", "Supabase", "Tailwind"],
+    type: "Agri-tech concept",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-4 bg-gradient-to-br from-black via-zinc-900 to-neutral-950 text-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Projects</h2>
-        <p className="text-gray-400 mb-12">
-          Some of the things I’ve built recently.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-              className="bg-[#1e293b] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition"
+    <section
+      id="projects"
+      className="section-shell overflow-hidden bg-[#0b0b0c] text-white"
+    >
+      <div className="aurora aurora-amber -right-20 top-10 h-64 w-64 opacity-30" />
+      <div className="section-inner">
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow mb-3">
+              <span className="font-mono text-zinc-500">01</span> Selected Work
+            </p>
+            <h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+              Projects that show product thinking, not just UI screens.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-6 text-zinc-400">
+            Each project focuses on a practical workflow, clear data, and
+            responsive implementation.
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: index * 0.08, duration: 0.45 }}
+              className={`card-surface card-hover group overflow-hidden rounded-2xl ${
+                index === 0 ? "lg:col-span-2" : ""
+              }`}
             >
-              <div className="relative w-full h-52">
+              <div className={`relative ${index === 0 ? "h-72" : "h-56"}`}>
                 <Image
                   src={project.image}
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="hover:scale-105 transition-transform duration-500"
+                  alt={`${project.title} screenshot`}
+                  fill
+                  sizes={index === 0 ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
+                  className="object-cover transition duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+                <p className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-bold text-white backdrop-blur">
+                  {project.type}
+                </p>
               </div>
+
               <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
+                <div className="mb-3 flex items-start justify-between gap-4">
+                  <h3 className="text-2xl font-black">{project.title}</h3>
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-white transition hover:rotate-6 hover:bg-amber-400 hover:text-black"
+                    aria-label={`${project.title} GitHub repository`}
+                  >
+                    <Github size={18} />
+                  </Link>
+                </div>
+                <p className="text-sm leading-6 text-zinc-300">
+                  {project.description}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
                     <span
-                      key={i}
-                      className="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded"
+                      key={tag}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs font-bold text-zinc-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
-                  <Link
-                    href={project.github}
-                    className="text-sm text-indigo-400 hover:underline"
-                    target="_blank"
-                  >
-                    GitHub
-                  </Link>
-                  <Link
-                    href={project.live}
-                    className="text-sm text-indigo-400 hover:underline"
-                    target="_blank"
-                  >
-                    Live Site
-                  </Link>
-                </div>
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link mt-6 inline-flex items-center gap-2 text-sm font-black text-amber-300 transition hover:text-amber-200"
+                >
+                  View repository
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                  />
+                </Link>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

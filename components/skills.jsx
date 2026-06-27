@@ -1,124 +1,115 @@
 "use client";
+
 import { motion } from "framer-motion";
 import {
-  FaHtml5,
   FaCss3Alt,
+  FaGitAlt,
+  FaHtml5,
   FaJs,
   FaNodeJs,
-  FaGitAlt,
   FaReact,
-  FaWrench,
 } from "react-icons/fa";
 import {
-  SiSupabase,
   SiExpress,
   SiMongodb,
-  SiPostgresql,
   SiMysql,
-  SiTailwindcss,
   SiNextdotjs,
+  SiPostgresql,
+  SiSupabase,
+  SiTailwindcss,
 } from "react-icons/si";
 import { Tooltip } from "react-tooltip";
 
-const groupedSkills = {
-  Frontend: {
-    icon: <FaReact className="text-cyan-400 text-2xl" />,
+const groupedSkills = [
+  {
+    title: "Frontend",
+    description: "Interfaces, layouts, motion, and reusable component systems.",
     skills: [
-      { label: "HTML", icon: <FaHtml5 className="text-orange-500" />, level: 90 },
-      { label: "CSS", icon: <FaCss3Alt className="text-blue-500" />, level: 85 },
-      { label: "JavaScript", icon: <FaJs className="text-yellow-400" />, level: 80 },
-      { label: "React", icon: <FaReact className="text-cyan-400" />, level: 85 },
-      { label: "Next.js", icon: <SiNextdotjs className="text-white" />, level: 80 },
-      { label: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-300" />, level: 90 },
+      { label: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
+      { label: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
+      { label: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+      { label: "React", icon: <FaReact className="text-cyan-400" /> },
+      { label: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+      { label: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-300" /> },
     ],
   },
-  Backend: {
-    icon: <FaNodeJs className="text-green-600 text-2xl" />,
+  {
+    title: "Backend",
+    description: "APIs, authentication, data flows, and server-side logic.",
     skills: [
-      { label: "Node.js", icon: <FaNodeJs className="text-green-600" />, level: 85 },
-      { label: "Express", icon: <SiExpress className="text-gray-300" />, level: 80 },
-      { label: "Supabase", icon: <SiSupabase className="text-green-400" />, level: 75 },
+      { label: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+      { label: "Express", icon: <SiExpress className="text-zinc-200" /> },
+      { label: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
     ],
   },
-  Database: {
-    icon: <SiMysql className="text-yellow-500 text-2xl" />,
+  {
+    title: "Data & Tools",
+    description: "Databases, version control, and practical delivery workflows.",
     skills: [
-      { label: "MySQL", icon: <SiMysql className="text-blue-600" />, level: 85 },
-      { label: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: 80 },
-      { label: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" />, level: 70 },
+      { label: "MySQL", icon: <SiMysql className="text-blue-500" /> },
+      { label: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+      { label: "PostgreSQL", icon: <SiPostgresql className="text-sky-400" /> },
+      { label: "Git", icon: <FaGitAlt className="text-red-500" /> },
     ],
   },
-  Tools: {
-    icon: <FaWrench className="text-white text-2xl" />,
-    skills: [
-      { label: "Git", icon: <FaGitAlt className="text-red-500" />, level: 90 },
-    ],
-  },
-};
+];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="w-full bg-gradient-to-br from-black via-zinc-900 to-neutral-950 py-20 px-4 text-white"
-    >
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-16"
-        >
-          My <span className="text-cyan-400">Skill Set</span>
-        </motion.h2>
+    <section id="skills" className="section-shell overflow-hidden bg-[#111112] text-white">
+      <div className="aurora aurora-teal -left-20 bottom-10 h-64 w-64 opacity-25" />
+      <div className="section-inner">
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow mb-3">
+              <span className="font-mono text-zinc-500">03</span> Stack
+            </p>
+            <h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+              Tools I use to move from idea to shipped interface.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-6 text-zinc-400">
+            Instead of vague percentages, this section highlights the tools I
+            use across real project work.
+          </p>
+        </div>
 
-        <div className="flex flex-col gap-20">
-          {Object.entries(groupedSkills).map(([category, { icon, skills }], i) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 40 }}
+        <div className="grid gap-4 lg:grid-cols-3">
+          {groupedSkills.map((group, index) => (
+            <motion.article
+              key={group.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: index * 0.08, duration: 0.45 }}
+              className="card-surface card-hover rounded-2xl p-5"
             >
-              <div className="flex items-center justify-center gap-3 mb-10">
-                <div>{icon}</div>
-                <h3 className="text-2xl sm:text-3xl font-bold underline underline-offset-8">
-                  {category}
-                </h3>
-              </div>
-
-              <div
-                className={`grid gap-8 justify-center ${
-                  skills.length <= 3
-                    ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-                    : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
-                }`}
-              >
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="flex flex-col items-center gap-2 p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-lg"
-                    data-tooltip-id={`tooltip-${category}-${index}`}
+              <h3 className="text-2xl font-black">{group.title}</h3>
+              <p className="mt-2 min-h-12 text-sm leading-6 text-zinc-400">
+                {group.description}
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-2">
+                {group.skills.map((skill) => (
+                  <div
+                    key={skill.label}
+                    className="group/skill flex items-center gap-3"
+                    data-tooltip-id="skill-tooltip"
                     data-tooltip-content={skill.label}
                   >
-                    <div className="text-4xl">{skill.icon}</div>
-                    <p className="text-sm font-medium">{skill.label}</p>
-                    <div className="w-full bg-gray-700 h-2 rounded">
-                      <div
-                        className="h-2 bg-cyan-400 rounded"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </motion.div>
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-white/[0.06] text-xl transition group-hover/skill:scale-110 group-hover/skill:bg-white/12">
+                      {skill.icon}
+                    </span>
+                    <span className="text-sm font-bold text-zinc-200 transition group-hover/skill:text-white">
+                      {skill.label}
+                    </span>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
-      <Tooltip id="tooltip" />
+      <Tooltip id="skill-tooltip" />
     </section>
   );
 }

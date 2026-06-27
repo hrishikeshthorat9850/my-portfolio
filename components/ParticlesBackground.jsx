@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 import Particles from "@tsparticles/react";
 import { loadLinksPreset } from "@tsparticles/preset-links";
-import LottieAnimation from "./LottieAnimation";
+
 export default function ParticlesBackground() {
   const particlesInit = useCallback(async (engine) => {
     await loadLinksPreset(engine);
@@ -18,7 +18,7 @@ export default function ParticlesBackground() {
         preset: "links",
         fullScreen: false,
         background: {
-          color: { value: "#0f172a" },
+          color: { value: "transparent" },
         },
         particles: {
           color: { value: "#ffffff" },

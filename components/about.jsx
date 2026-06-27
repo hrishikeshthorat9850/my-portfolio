@@ -1,57 +1,70 @@
-import Link from "next/link";
 import Image from "next/image";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub } from "react-icons/fa";
-import { SiTailwindcss, SiJavascript, SiTypescript, SiNextdotjs } from "react-icons/si";
+import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
+
+const principles = [
+  "Responsive layouts that feel intentional on mobile and desktop",
+  "Clean component structure with practical, readable code",
+  "Interfaces that make real workflows easier to complete",
+];
 
 export default function AboutMe() {
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-zinc-900 to-neutral-950 dark:from-gray-900 dark:to-black" id="about">
-      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-16">
-        {/* Text Content */}
-        <div className="text-center md:text-left max-w-xl space-y-6">
-          <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-            About Me
-          </h2>
-          <p className="text-white dark:text-gray-300 text-lg leading-relaxed">
-            I'm Link passionate full-stack developer with Link knack for building clean, high-performance web apps using modern tools like <strong>Next.js</strong>, <strong>Supabase</strong>, and <strong>Tailwind CSS</strong>. I aim to craft user-centric digital experiences that solve real problems.
-          </p>
-          <div className="flex gap-4 justify-center md:justify-start">
-            <Link
-              href="Resume.pdf"
-              download
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition-all duration-300"
-            >
-              Download Resume
-            </Link>
-            <Link
-              href="/contact"
-              className="bg-transparent border-2 border-blue-600 text-blue-600 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300"
-            >
-              Hire Me
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-6 text-3xl text-blue-600 dark:text-blue-400">
-            <FaReact title="React" />
-            <SiNextdotjs title="Next.js" />
-            <SiJavascript title="JavaScript" />
-            <SiTypescript title="TypeScript" />
-            <FaNodeJs title="Node.js" />
-            <FaGithub title="GitHub" />
-            <SiTailwindcss title="Tailwind CSS" />
-            <FaHtml5 title="HTML5" />
-            <FaCss3Alt title="CSS3" />
+    <section id="about" className="section-shell bg-[#f6f3ee] text-zinc-950">
+      <div className="section-inner grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="group relative mx-auto w-full max-w-sm lg:mx-0">
+          <div className="absolute -inset-3 -z-10 rounded-[1.75rem] bg-gradient-to-tr from-amber-300/40 to-teal-300/30 blur-xl transition group-hover:from-amber-400/50" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-2xl shadow-zinc-900/10">
+            <Image
+              src="/my-photo.png"
+              alt="Hrishikesh Thorat"
+              fill
+              sizes="(min-width: 1024px) 380px, 90vw"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
           </div>
         </div>
 
-        {/* Profile Image */}
-        <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl shadow-blue-300 dark:shadow-blue-800 hover:scale-105 transition-transform duration-500 ml-40">
-          <Image
-            src="my-photo.png" 
-            alt="Your Name"
-            fill
-            className="object-cover"
-            priority
-          />
+        <div>
+          <p className="eyebrow mb-3">
+            <span className="font-mono text-zinc-400">02</span> About
+          </p>
+          <h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
+            I design and build web apps that are{" "}
+            <span className="text-gradient">simple to use and easy to grow.</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-700">
+            I'm a full-stack developer who enjoys shaping ideas into polished,
+            useful products. My work blends React and Next.js interfaces with
+            backend tools like Node.js, Supabase, and MongoDB.
+          </p>
+
+          <div className="mt-8 space-y-3">
+            {principles.map((item) => (
+              <div key={item} className="flex gap-3 text-sm font-semibold text-zinc-800">
+                <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/Resume.pdf"
+              download
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 px-6 py-3 font-bold text-white transition hover:bg-zinc-800"
+            >
+              Resume
+              <Download size={18} className="transition-transform group-hover:translate-y-0.5" />
+            </Link>
+            <Link
+              href="#contact"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-6 py-3 font-bold text-zinc-950 transition hover:border-zinc-950 hover:bg-white"
+            >
+              Hire Me
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
