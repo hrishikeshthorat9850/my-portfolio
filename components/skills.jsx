@@ -29,7 +29,7 @@ const groupedSkills = [
       { label: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
       { label: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
       { label: "React", icon: <FaReact className="text-cyan-400" /> },
-      { label: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+      { label: "Next.js", icon: <SiNextdotjs className="text-zinc-900 dark:text-white" /> },
       { label: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-300" /> },
     ],
   },
@@ -38,7 +38,7 @@ const groupedSkills = [
     description: "APIs, authentication, data flows, and server-side logic.",
     skills: [
       { label: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-      { label: "Express", icon: <SiExpress className="text-zinc-200" /> },
+      { label: "Express", icon: <SiExpress className="text-zinc-700 dark:text-zinc-200" /> },
       { label: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
     ],
   },
@@ -56,8 +56,8 @@ const groupedSkills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-shell overflow-hidden bg-[#111112] text-white">
-      <div className="aurora aurora-teal -left-20 bottom-10 h-64 w-64 opacity-25" />
+    <section id="skills" className="section-shell overflow-hidden bg-white text-zinc-950 dark:bg-[#111112] dark:text-white">
+      <div className="aurora aurora-teal -left-20 bottom-10 h-64 w-64 opacity-15 dark:opacity-25" />
       <div className="section-inner">
         <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
@@ -68,7 +68,7 @@ export default function Skills() {
               Tools I use to move from idea to shipped interface.
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-6 text-zinc-400">
+          <p className="max-w-sm text-sm leading-6 text-zinc-600 dark:text-zinc-400">
             Instead of vague percentages, this section highlights the tools I
             use across real project work.
           </p>
@@ -85,7 +85,7 @@ export default function Skills() {
               className="card-surface card-hover rounded-2xl p-5"
             >
               <h3 className="text-2xl font-black">{group.title}</h3>
-              <p className="mt-2 min-h-12 text-sm leading-6 text-zinc-400">
+              <p className="mt-2 min-h-12 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                 {group.description}
               </p>
               <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-2">
@@ -96,10 +96,10 @@ export default function Skills() {
                     data-tooltip-id="skill-tooltip"
                     data-tooltip-content={skill.label}
                   >
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-white/[0.06] text-xl transition group-hover/skill:scale-110 group-hover/skill:bg-white/12">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-zinc-100 text-xl transition group-hover/skill:scale-110 group-hover/skill:bg-zinc-200 dark:bg-white/[0.06] dark:group-hover/skill:bg-white/12">
                       {skill.icon}
                     </span>
-                    <span className="text-sm font-bold text-zinc-200 transition group-hover/skill:text-white">
+                    <span className="text-sm font-bold text-zinc-700 transition group-hover/skill:text-zinc-950 dark:text-zinc-200 dark:group-hover/skill:text-white">
                       {skill.label}
                     </span>
                   </div>

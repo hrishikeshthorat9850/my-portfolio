@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
 const stats = [
-  { label: "Projects", value: "03+" },
+  { label: "Projects", value: "04+" },
   { label: "Core Stack", value: "MERN" },
   { label: "Focus", value: "UX" },
 ];
@@ -27,7 +27,10 @@ const item = {
 
 export default function Hero() {
   return (
-    <div className="grid-backdrop relative min-h-[calc(100vh-6rem)] overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,#050505_0%,#111111_42%,#0b3b3f_100%)] px-4 py-16 text-white dark:border-white/10">
+    <div className="relative min-h-[calc(100vh-6rem)] overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,#050505_0%,#111111_42%,#0b3b3f_100%)] px-4 py-16 text-white">
+      {/* Grid overlay (always dark-themed, independent of light/dark mode) */}
+      <div className="hero-grid pointer-events-none absolute inset-0" />
+
       {/* Aurora glow blobs */}
       <div className="aurora aurora-amber animate-float-slow -left-24 top-10 h-72 w-72" />
       <div className="aurora aurora-teal animate-float-slower -right-16 bottom-0 h-80 w-80" />

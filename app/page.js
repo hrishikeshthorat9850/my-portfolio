@@ -13,13 +13,7 @@ function AppContent() {
   const { darkMode, toggleTheme } = useTheme();
 
   return (
-    <div
-      className={`font-sans flex min-h-screen w-full flex-col overflow-hidden ${
-        darkMode
-          ? "bg-[#060607] text-white"
-          : "bg-[#f6f3ee] text-zinc-950"
-      }`}
-    >
+    <div className="font-sans flex min-h-screen w-full flex-col overflow-hidden bg-[#f6f3ee] text-zinc-950 dark:bg-[#060607] dark:text-white">
       <Header darkMode={darkMode} toggleTheme={toggleTheme} />
 
       <main className="w-full pt-24">

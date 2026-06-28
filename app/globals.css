@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Use the .dark class on <html> for dark mode instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -122,6 +125,11 @@ html:not(.dark) .card-surface {
   box-shadow: 0 32px 90px rgb(0 0 0 / 0.32), 0 0 0 1px rgb(245 158 11 / 0.12);
 }
 
+html:not(.dark) .card-hover:hover {
+  border-color: rgb(245 158 11 / 0.5);
+  box-shadow: 0 28px 70px rgb(39 33 24 / 0.16), 0 0 0 1px rgb(245 158 11 / 0.18);
+}
+
 /* ---------- Grid backdrop ---------- */
 .grid-backdrop {
   background-image:
@@ -134,6 +142,14 @@ html:not(.dark) .grid-backdrop {
   background-image:
     linear-gradient(rgb(24 24 27 / 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgb(24 24 27 / 0.07) 1px, transparent 1px);
+}
+
+/* Always-dark grid overlay for the hero (independent of theme) */
+.hero-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 /* ---------- Aurora glow blobs ---------- */
